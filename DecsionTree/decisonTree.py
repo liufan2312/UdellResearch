@@ -64,7 +64,7 @@ class decisionTree(object):
         for i in range(self.max_split):
             # choose leaf node
             split = True
-            while (split):
+            while split:
                 leaf_ind = np.random.randint(0, len(self.leaves))
                 cur_leaf = self.leaves[leaf_ind]
                 feature_index = np.random.randint(0, n_f)
@@ -88,6 +88,9 @@ class decisionTree(object):
                 split = False
 
         return self.get_nodes()
+
+    def build_greedy_tree(self):
+
 
 
 
