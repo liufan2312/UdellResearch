@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f4dec00-837c-405c-a977-637b35c11845" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MetaFeature/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MetaFeature/dataSetFeatureExtractor.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MetaFeature/metaFeatureTableBuilder.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/DecsionTree/node" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/UdellResearch.iml" afterPath="$PROJECT_DIR$/.idea/UdellResearch.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MetaFeature/dataSetFeatureExtractor.py" afterPath="$PROJECT_DIR$/MetaFeature/dataSetFeatureExtractor.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +26,8 @@
       <file leaf-file-name="dataSetFeatureExtractor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MetaFeature/dataSetFeatureExtractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="546" column="31" lean-forward="true" selection-start-line="546" selection-start-column="31" selection-end-line="546" selection-end-column="31" />
+            <state relative-caret-position="-699">
+              <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -56,9 +50,11 @@
       <file leaf-file-name="decisonTree.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DecsionTree/decisonTree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-737">
+            <state relative-caret-position="99">
               <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-              <folding />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,6 +67,16 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sklearn.model_selection</find>
+      <find>DecisionTree</find>
+      <find>discri</find>
+      <find>naive_</find>
+      <find>decomp</find>
+      <find>neighb</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -236,16 +242,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MetaFeature/dataSetFeatureExtractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="546" column="31" lean-forward="true" selection-start-line="546" selection-start-column="31" selection-end-line="546" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MetaFeature/metaFeatureTableBuilder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="438">
@@ -256,11 +252,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MetaFeature/dataSetFeatureExtractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-699">
+          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DecsionTree/decisonTree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-737">
+        <state relative-caret-position="99">
           <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

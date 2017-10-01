@@ -3,16 +3,17 @@ from collections import defaultdict
 import numpy as np
 import scipy.stats
 import scipy.sparse as sps
-import sklearn
 import sklearn.metrics
-import sklearn.model_selection
-import sklearn.decomposition
-import sklearn.discriminant_analysis
-import sklearn.naive_bayes
-import sklearn.tree
-import sklearn.neighbors
+import sklearn.utils
 
-from sklearn.utils import check_array
+from sklearn.model_selection import StratifiedKFold
+from sklearn.decomposition import PCA, TruncatedSVD
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+
+# from sklearn.utils import check_array
 # from sklearn.multiclass import OneVsRestClassifier
 
 
@@ -271,7 +272,7 @@ class DataSetFeatureExtractor(object):
 
     def pca(self):
         if not sps.issparse(self.x_clean):
-            pca = sklearn.decomposition.PCA(copy=True)
+            pca = PCA(copy=True)
             rs = np.random.RandomState(42)
             indices = np.arange(self.x_clean.shape[0])
 
@@ -294,7 +295,7 @@ class DataSetFeatureExtractor(object):
             for i in range(10):
                 try:
                     rs.shuffle(indices)
-                    truncated_svd = sklearn.decomposition.TruncatedSVD(
+                    truncated_svd = TruncatedSVD(
                         n_components=xt.shape[1] - 1, random_state=i,
                         algorithm="randomized")
 
@@ -365,12 +366,12 @@ class DataSetFeatureExtractor(object):
         n_split = 2
 
         if not sps.issparse(self.x_clean):
-            kf = sklearn.model_selection.StratifiedKFold(n_splits=n_split)
+            kf = StratifiedKFold(n_splits=n_split)
             accuracy = 0.
 
             try:
                 for train, test in kf.split(self.x_clean, self.y_clean):
-                    lda = sklearn.discriminant_analysis.LinearDiscriminantAnalysis()
+                    lda = LinearDiscriminantAnalysis()
                     lda.fit(self.x_clean[train], self.y_clean[train])
 
                     predictions = lda.predict(self.x_clean[test])
@@ -391,11 +392,11 @@ class DataSetFeatureExtractor(object):
         n_split = 2
 
         if not sps.issparse(self.x_clean):
-            kf = sklearn.model_selection.StratifiedKFold(n_splits=n_split)
+            kf = StratifiedKFold(n_splits=n_split)
 
             accuracy = 0.
             for train, test in kf.split(self.x_clean, self.y_clean):
-                nb = sklearn.naive_bayes.GaussianNB()
+                nb = GaussianNB()
                 nb.fit(self.x_clean[train], self.y_clean[train])
 
                 predictions = nb.predict(self.x_clean[test])
@@ -409,12 +410,12 @@ class DataSetFeatureExtractor(object):
         n_split = 2
 
         if not sps.issparse(self.x_clean):
-            kf = sklearn.model_selection.StratifiedKFold(n_splits=n_split)
+            kf = StratifiedKFold(n_splits=n_split)
             accuracy = 0.
 
             for train, test in kf.split(self.x_clean, self.y_clean):
                 random_state = sklearn.utils.check_random_state(42)
-                tree = sklearn.tree.DecisionTreeClassifier(random_state=random_state)
+                tree = DecisionTreeClassifier(random_state=random_state)
 
                 tree.fit(self.x_clean[train], self.y_clean[train])
                 predictions = tree.predict(self.x_clean[test])
@@ -428,12 +429,12 @@ class DataSetFeatureExtractor(object):
         n_split = 2
 
         if not sps.issparse(self.x_clean):
-            kf = sklearn.model_selection.StratifiedKFold(n_splits=n_split)
+            kf = StratifiedKFold(n_splits=n_split)
             accuracy = 0.
 
             for train, test in kf.split(self.x_clean, self.y_clean):
                 random_state = sklearn.utils.check_random_state(42)
-                node = sklearn.tree.DecisionTreeClassifier(
+                node = DecisionTreeClassifier(
                     criterion="entropy", max_depth=1, random_state=random_state,
                     min_samples_split=2, min_samples_leaf=1, max_features=None)
 
@@ -449,12 +450,12 @@ class DataSetFeatureExtractor(object):
         n_split = 2
 
         if not sps.issparse(self.x_clean):
-            kf = sklearn.model_selection.StratifiedKFold(n_splits=n_split)
+            kf = StratifiedKFold(n_splits=n_split)
             accuracy = 0.
 
             for train, test in kf.split(self.x_clean, self.y_clean):
                 random_state = sklearn.utils.check_random_state(42)
-                node = sklearn.tree.DecisionTreeClassifier(
+                node = DecisionTreeClassifier(
                     criterion="entropy", max_depth=1, random_state=random_state,
                     min_samples_split=2, min_samples_leaf=1, max_features=1)
 
@@ -472,11 +473,11 @@ class DataSetFeatureExtractor(object):
     def landmark_1nn(self):
         n_split = 2
 
-        kf = sklearn.model_selection.StratifiedKFold(n_splits=n_split)
+        kf = StratifiedKFold(n_splits=n_split)
 
         accuracy = 0.
         for train, test in kf.split(self.x_clean, self.y_clean):
-            kNN = sklearn.neighbors.KNeighborsClassifier(n_neighbors=1)
+            kNN = KNeighborsClassifier(n_neighbors=1)
 
             kNN.fit(self.x_clean[train], self.y_clean[train])
             predictions = kNN.predict(self.x_clean[test])
